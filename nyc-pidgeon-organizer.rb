@@ -23,15 +23,18 @@ pigeon_data = {
   }
 }
 
-pigeon_list = {}
-
-pigeon_data[:gender][:male].each do |name|
-  pigeon_list[name] = {:gender => "male"}
-end
-
-
-pigeon_data[:gender][:female].each do |name|
-  pigeon_list[name] = {:gender => "female"}
+new_pigeon = {}
+pigeon_data.each_pair do |key,value|
+  value.each_pair do |attribute, name_array|
+    name_array.each do |name|
+      new_pigeon[name] = {} unless new_pigeon[name]
+      new_pigeon[name] [:color] = [] unless new_pigeon 
+      if key == :color 
+        new_pigeon[name][key] << attribute
+        new_pigeon[name][key] = attribute
+          end
+      end
+    end
 end
 
 
